@@ -1,0 +1,82 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 200px;
+    border-right: 1px solid #ccc;
+    padding: 10px;
+}
+
+.category {
+    padding: 5px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+.category:hover {
+    background-color: #f0f0f0;
+}
+
+.block-list {
+    margin-top: 10px;
+}
+
+.block {
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    cursor: grab;
+}
+
+.workspace {
+    flex-grow: 1;
+    padding: 10px;
+    position: relative;
+}
+
+.script-area {
+    height: 100%;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.text-area {
+    height: 100%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    white-space: pre-wrap;
+}
+
+.block.dragging {
+    opacity: 0.5;
+}
+
+.nested {
+    margin-left: 20px;
+}
+
+#variable-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+}

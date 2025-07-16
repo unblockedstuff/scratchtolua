@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block-Coding Interface</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="category" data-category="motion">Motion</div>
+            <div class="category" data-category="events">Events</div>
+            <div class="category" data-category="control">Control</div>
+            <div class="category" data-category="variables">Variables</div>
+            <div class="category" data-category="operators">Operators</div>
+            <div class="category" data-category="looks">Looks</div>
+            <div class="block-list"></div>
+            <button id="text-mode-btn">Text Mode</button>
+        </div>
+        <div class="workspace">
+            <div class="script-area"></div>
+            <div class="text-area" style="display: none;"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <div id="variable-modal" style="display: none;">
+        <div class="modal-content">
+            <h3>Create Variable</h3>
+            <input type="text" id="variable-name" placeholder="Variable name">
+            <button id="create-variable-btn">Create</button>
+            <button id="cancel-variable-btn">Cancel</button>
+        </div>
+    </div>
+</body>
+</html>
