@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block-Based Coding Interface</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="category active">
+                <div class="category-header" onclick="toggleCategory(this)">Events</div>
+                <div class="category-content">
+                    <div class="block events" data-type="event" data-block="when_flag_clicked">
+                        when flag clicked
+                    </div>
+                    <div class="block events" data-type="event" data-block="when_sprite_clicked">
+                        when sprite clicked
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-header" onclick="toggleCategory(this)">Motion</div>
+                <div class="category-content">
+                    <div class="block motion" data-type="motion" data-block="move">
+                        move <input type="number" class="input-field" value="10" min="1"> steps
+                    </div>
+                    <div class="block motion" data-type="motion" data-block="turn">
+                        turn <input type="number" class="input-field" value="15" min="1"> degrees
+                    </div>
+                    <div class="block motion" data-type="motion" data-block="go_to">
+                        go to x: <input type="number" class="input-field" value="0"> y: <input type="number" class="input-field" value="0">
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-header" onclick="toggleCategory(this)">Control</div>
+                <div class="category-content">
+                    <div class="block control" data-type="control" data-block="repeat">
+                        repeat <input type="number" class="input-field" value="10" min="1">
+                    </div>
+                    <div class="block control" data-type="control" data-block="if">
+                        if <input type="text" class="input-field" placeholder="condition">
+                    </div>
+                    <div class="block control" data-type="control" data-block="if_else">
+                        if <input type="text" class="input-field" placeholder="condition">
+                    </div>
+                    <div class="block control" data-type="control" data-block="wait">
+                        wait <input type="number" class="input-field" value="1" min="0.1" step="0.1"> sec
+                    </div>
+                    <div class="block control" data-type="control" data-block="forever">
+                        forever
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-header" onclick="toggleCategory(this)">Looks</div>
+                <div class="category-content">
+                    <div class="block looks" data-type="looks" data-block="say">
+                        say <input type="text" class="input-field" value="Hello!" placeholder="message">
+                    </div>
+                    <div class="block looks" data-type="looks" data-block="switch_costume">
+                        switch costume to <select class="dropdown">
+                            <option>costume1</option>
+                            <option>costume2</option>
+                            <option>costume3</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-header" onclick="toggleCategory(this)">Variables</div>
+                <div class="category-content">
+                    <div class="block variables" data-type="variables" data-block="set_var">
+                        set <select class="dropdown variable-dropdown">
+                            <option value="">select variable</option>
+                        </select> to <input type="text" class="input-field" placeholder="value">
+                    </div>
+                    <div class="block variables" data-type="variables" data-block="change_var">
+                        change <select class="dropdown variable-dropdown">
+                            <option value="">select variable</option>
+                        </select> by <input type="number" class="input-field" value="1">
+                    </div>
+                    
+                    <div class="variable-manager">
+                        <div class="variable-input">
+                            <input type="text" id="newVarName" placeholder="Variable name">
+                            <button class="add-variable-btn" onclick="addVariable()">Add</button>
+                        </div>
+                        <div class="variable-list" id="variableList"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-header" onclick="toggleCategory(this)">Operators</div>
+                <div class="category-content">
+                    <div class="block operators" data-type="operators" data-block="add">
+                        <input type="number" class="input-field" value="0"> + <input type="number" class="input-field" value="0">
+                    </div>
+                    <div class="block operators" data-type="operators" data-block="subtract">
+                        <input type="number" class="input-field" value="0"> - <input type="number" class="input-field" value="0">
+                    </div>
+                    <div class="block operators" data-type="operators" data-block="equals">
+                        <input type="text" class="input-field" placeholder="value"> = <input type="text" class="input-field" placeholder="value">
+                    </div>
+                    <div class="block operators" data-type="operators" data-block="less_than">
+                        <input type="number" class="input-field" value="0"> &lt; <input type="number" class="input-field" value="0">
+                    </div>
+                    <div class="block operators" data-type="operators" data-block="greater_than">
+                        <input type="number" class="input-field" value="0"> &gt; <input type="number" class="input-field" value="0">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="workspace">
+            <div class="workspace-header">
+                <button class="text-mode-btn" onclick="showTextMode()">Text Mode</button>
+            </div>
+            <div class="script-area" id="scriptArea">
+                <div class="placeholder-text">Drag blocks here to start coding!<br>Start with an event block (like "when flag clicked")</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay" onclick="hideTextMode()"></div>
+    <div class="text-output" id="textOutput">
+        <button class="close-btn" onclick="hideTextMode()">&times;</button>
+        <h3>Generated Code</h3>
+        <pre id="codeOutput"></pre>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
